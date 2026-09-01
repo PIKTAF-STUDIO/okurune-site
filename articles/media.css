@@ -1,23 +1,24 @@
 /* おくるねマガジン（贈り物メディア）共通スタイル
    アプリ「おくるね」と同じ世界観（Zen Maru Gothic・ローズ×クリーム）で揃える */
 :root {
+    /* アプリ「おくるね」ポップテーマのトークン（/css/okurune.css と同じ値） */
     --accent: #D63E5A;
-    --accent-soft: #E8547E;
-    --accent-tint: #FBE3E8;
-    --gold: #C0912E;
-    --gold-tint: #FBF3DC;
-    --bg: #FFF8F5;
+    --accent-soft: #FF6B81;
+    --accent-tint: #FFE3E8;
+    --gold: #E59429;
+    --gold-tint: #FDEACB;
+    --bg: #FFF6F2;
     --card: #FFFFFF;
-    --ink: #3B2B28;
-    --ink2: #8A7570;
-    --ink3: #B5A29C;
-    --line: #EADDD7;
+    --ink: #3A2F2E;
+    --ink2: #8A7A78;
+    --ink3: #BCAEAB;
+    --line: #EFE4E0;
 }
 
 * { box-sizing: border-box; margin: 0; }
 html { scroll-behavior: smooth; }
 body {
-    font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
     background: var(--bg);
     color: var(--ink);
     line-height: 1.9;
@@ -26,12 +27,14 @@ body {
 img { max-width: 100%; }
 a { color: var(--accent); }
 
+h1, h2, h3, .mag-logo, .mag-nav, .article-card h3, .item-card h3, .app-cta strong { font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif; }
+
 /* ---- ヘッダー ---- */
 .mag-header {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(255, 248, 245, 0.92);
+    background: rgba(255, 246, 242, 0.92);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
 }
@@ -80,7 +83,7 @@ a { color: var(--accent); }
 
 /* ---- メディアトップ: ヒーロー ---- */
 .mag-hero {
-    background: linear-gradient(135deg, #FF9AB6, #D63E5A);
+    background: linear-gradient(135deg, #FF8299, #F0506A);
     color: #FFF8F5;
     text-align: center;
     padding: 44px 20px 40px;
@@ -273,7 +276,7 @@ article th, article td {
     text-align: left;
     background: var(--card);
 }
-article th { background: #FBEDE7; font-weight: 700; white-space: nowrap; }
+article th { background: #FFF0EB; font-weight: 700; white-space: nowrap; }
 .note {
     background: var(--gold-tint);
     border-left: 4px solid var(--gold);

@@ -7,12 +7,15 @@ piktaf-studio.com/okurune/ から 2026-09-01 に切り出した。
 
 | パス | 役割 |
 |---|---|
-| `index.html` | アプリ紹介（機能・ダウンロード・お問い合わせ `#contact`） |
+| `index.html` | 贈り物の総合トップ（シーン/相手/予算の入口・SNSで話題のギフト・マナー早見表・お問い合わせ `#contact`） |
+| `gifts.html` + `data/gifts.json` | ギフトカタログ。`tools/build_gifts.py` で 034 リポの candidate-products.json から生成 |
+| `app.html` | アプリ紹介（機能・プライバシー・プレミアム・ダウンロード） |
 | `privacy.html` `terms.html` `tokushoho.html` | アプリの規約類。ストア掲載・アプリ内リンクの飛び先 |
 | `site-privacy.html` | このサイト自体（GA4・Cookie）のポリシー。同意バナーの飛び先 |
 | `articles/` | おくるねマガジン（記事・`media.css` `media.js`） |
 | `data/articles.json` | **アプリが1日1回取得する記事一覧**。パスと項目名を変えない |
-| `css/style.css` `js/main.js` `js/analytics.js` | piktaf-studio.com と共通の見た目・テーマ切替・GA4同意管理 |
+| `css/okurune.css` `js/site.js` | アプリのポップテーマ（app_theme.dart の OkuruneColors）と同じトークンで組んだ共通スタイル・メニュー/カタログの動き |
+| `js/analytics.js` | piktaf-studio.com と共通の GA4 同意管理 |
 
 ## アプリとの取り決め
 

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ギフトを探す | おくるね</title>
+    <meta name="description" content="SNSで「もらって嬉しかった」と紹介された贈り物を、相手・シーン・予算・特徴から絞り込んで探せます。誕生日・出産祝い・結婚祝い・お礼などのギフト選びに。">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="おくるね">
+    <meta property="og:title" content="ギフトを探す | おくるね">
+    <meta property="og:description" content="SNSで話題の贈り物を 相手・シーン・予算から絞り込み">
+    <meta property="og:image" content="https://okurune.com/assets/img/og.jpg">
+    <meta property="og:url" content="https://okurune.com/gifts.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#FF6B81">
+    <link rel="icon" href="/assets/icon-256.png" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/icon-256.png">
+    <link rel="canonical" href="https://okurune.com/gifts.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Figtree:wght@700;800&display=swap">
+    <link rel="stylesheet" href="/css/okurune.css">
+    <script src="/js/analytics.js"></script>
+    <script src="/js/site.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/"><img src="/assets/icon-256.png" alt="">おくるね<small>贈り物とお返しの総合サイト</small></a>
+            <button class="nav-toggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="site-nav">☰</button>
+            <nav class="site-nav" id="site-nav">
+                <a href="/#scenes">シーンから探す</a>
+                <a href="/gifts.html">ギフトを探す</a>
+                <a href="/articles/">マガジン</a>
+                <a href="/#manner">マナー早見表</a>
+                <a href="/app.html" class="cta">アプリ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section" style="padding-top:36px">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <span class="en">GIFT CATALOG</span>
+                    <h2>ギフトを探す</h2>
+                    <p>Instagram・TikTok・YouTube・Lemon8 で「もらって嬉しかった」「センスがいい」と紹介された贈り物を編集部が集めました。相手・シーン・予算・特徴で絞り込めます　<span class="pr-note">PR　商品リンクは広告を含みます</span></p>
+                </div>
+            </div>
+
+            <div class="filter-bar" id="filters" aria-label="絞り込み"></div>
+
+            <div class="result-bar">
+                <div><span id="result-count"><span class="num">…</span> 件</span>　<button class="chip" type="button" id="clear-filters">条件をクリア</button></div>
+                <div><span id="data-updated" style="margin-right:10px"></span><label>並び順 <select id="sort"><option value="recommended">おすすめ順</option><option value="price-low">価格が安い順</option><option value="price-high">価格が高い順</option></select></label></div>
+            </div>
+
+            <div class="gift-grid" id="gift-grid" aria-live="polite">
+                <div class="empty">読み込み中</div>
+            </div>
+
+            <p class="footer-note" style="margin-top:22px">掲載している価格は編集部が確認した時点のもので、各ストアの表示が優先されます。商品画像は楽天市場の商品ページから取得しています。「おすすめ順」は SNS で紹介された回数が多いものから並べています。</p>
+
+            <div class="app-panel" style="margin-top:40px">
+                <div>
+                    <img class="app-icon" src="/assets/icon-256.png" alt="おくるね アプリアイコン" width="64" height="64">
+                    <h2>相手に合わせて選ぶなら<br>アプリの「ぴったりギフト診断」</h2>
+                    <p>5つの質問に答えるだけで、相手の年代・関係・好みに合った贈り物を提案。えらべない日はギフトガチャも。贈った記録もそのまま残せます。</p>
+                    <div class="stores">
+                        <a class="btn-store" href="https://apps.apple.com/jp/app/id6781582366" target="_blank" rel="noopener"><span><small>iPhone・iPad</small><b>App Store</b></span></a>
+                        <a class="btn-store" href="https://play.google.com/store/apps/details?id=jp.okaeshinote.app" target="_blank" rel="noopener"><span><small>Android</small><b>Google Play</b></span></a>
+                        <a class="btn btn-soft btn-sm" href="/app.html">アプリについて</a>
+                    </div>
+                </div>
+                <div class="feature-list">
+                    <div class="feature"><div class="t">🔍 ぴったりギフト診断</div><div class="s">5問で相手に合う贈り物を提案</div></div>
+                    <div class="feature"><div class="t">🎰 ギフトガチャ</div><div class="s">年代・性別で絞って10連</div></div>
+                    <div class="feature"><div class="t">🧮 お返しの目安額</div><div class="s">半返し・1/3返しを自動計算</div></div>
+                    <div class="feature"><div class="t">📒 贈った記録</div><div class="s">同じ品を二度贈らない</div></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><img src="/assets/icon-256.png" alt="">おくるね</div>
+            <ul class="footer-links">
+                <li><a href="/gifts.html">ギフトを探す</a></li>
+                <li><a href="/articles/">おくるねマガジン</a></li>
+                <li><a href="/app.html">アプリについて</a></li>
+                <li><a href="/#contact">お問い合わせ</a></li>
+                <li><a href="/privacy.html">アプリのプライバシーポリシー</a></li>
+                <li><a href="/terms.html">利用規約</a></li>
+                <li><a href="/tokushoho.html">特定商取引法に基づく表記</a></li>
+                <li><a href="/site-privacy.html">当サイトのプライバシーポリシー</a></li>
+                <li><a href="https://piktaf-studio.com/" target="_blank" rel="noopener">PIKTAF STUDIO</a></li>
+            </ul>
+            <p class="footer-note">当サイトの商品紹介にはアフィリエイトプログラム（楽天アフィリエイト・Amazonアソシエイト）のリンクを含みます。商品の価格・在庫は各ストアの表示をご確認ください。</p>
+            <p class="footer-copy">&copy; 2026 PIKTAF STUDIO</p>
+        </div>
+    </footer>
+</body>
+</html>
