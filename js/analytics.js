@@ -1,5 +1,7 @@
 /* ============================================
-   PIKTAF STUDIO - Analytics (GA4 + 同意管理)
+   おくるね公式サイト (okurune.com) - Analytics (GA4 + 同意管理)
+   piktaf-studio.com の analytics.js と同じ仕組み。同意バナーの飛び先と
+   store_click の app 名だけこのサイト用に固定している
    ============================================ */
 (function () {
     'use strict';
@@ -67,7 +69,7 @@
             no: '使用しない',
             settings: 'Cookie設定',
             policy: 'プライバシーポリシー',
-            url: '/privacy.html'
+            url: '/site-privacy.html'
         },
         en: {
             msg: 'We use Google Analytics cookies to understand how this site is used. They are enabled only with your consent.',
@@ -75,7 +77,7 @@
             no: 'Decline',
             settings: 'Cookie settings',
             policy: 'Privacy Policy',
-            url: '/privacy-en.html'
+            url: '/site-privacy.html'
         },
         fr: {
             msg: 'Nous utilisons des cookies Google Analytics pour comprendre l\'utilisation de ce site. Ils ne sont activés qu\'avec votre consentement.',
@@ -83,7 +85,7 @@
             no: 'Refuser',
             settings: 'Paramètres des cookies',
             policy: 'Politique de confidentialité',
-            url: '/privacy-fr.html'
+            url: '/site-privacy.html'
         }
     };
     function t() {
@@ -192,9 +194,10 @@
     }
 
     // --- ストアボタンのクリック計測 ---
+    // piktaf-studio.com では先頭のパスがアプリ名だったが、このドメインは
+    // おくるね専用なので固定（GA4 のレポートで旧サイト時代と同じ値に揃える）
     function currentApp() {
-        var seg = location.pathname.split('/').filter(function (v) { return v; });
-        return seg.length ? seg[0] : 'top';
+        return 'okurune';
     }
 
     document.addEventListener('click', function (e) {
