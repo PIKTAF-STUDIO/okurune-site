@@ -78,7 +78,7 @@ h1, h2, h3, .mag-logo, .mag-nav, .article-card h3, .item-card h3, .app-cta stron
 .mag-nav a.cta:hover { background: var(--accent-soft); color: #fff; }
 
 /* ---- レイアウト ---- */
-.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px 72px; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px 56px; }
 .wrap-narrow { max-width: 680px; margin: 0 auto; padding: 0 20px 72px; }
 
 /* ---- メディアトップ: ヒーロー ---- */
@@ -118,7 +118,7 @@ h1, h2, h3, .mag-logo, .mag-nav, .article-card h3, .item-card h3, .app-cta stron
 /* ---- セクション見出し ---- */
 .mag-section { margin: 40px 0 16px; }
 .mag-section h2 {
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 900;
     display: flex;
     align-items: baseline;
@@ -396,7 +396,7 @@ article th { background: #FFF0EB; font-weight: 700; white-space: nowrap; }
 @media (max-width: 760px) {
     .card-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .article-card h3 { font-size: 13px; }
-    .article-card p { display: none; }
+    .article-card p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 12.5px; }
     .article-card .body { padding: 10px 12px 12px; }
 }
 @media (max-width: 560px) {

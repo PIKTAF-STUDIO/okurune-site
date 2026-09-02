@@ -18,8 +18,10 @@
     <meta name="twitter:image" content="https://okurune.com/articles/img/shussan-uchiwai.jpg">
     <link rel="icon" href="../assets/icon-256.png" type="image/png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="/css/okurune.css">
     <link rel="stylesheet" href="media.css">
     <script src="/js/analytics.js"></script>
+    <script src="/js/site.js" defer></script>
     <script src="media.js" defer></script>
     <script type="application/ld+json">
 {
@@ -79,13 +81,15 @@
     </script>
 </head>
 <body>
-    <header class="mag-header">
-        <div class="mag-header-inner">
-            <a class="mag-logo" href="/articles/"><img src="../assets/icon-256.png" alt="おくるね">おくるね<span>マガジン</span></a>
-            <nav class="mag-nav">
-                <a href="/" class="hide-sp">トップ</a>
-                <a href="/gifts" class="hide-sp">ギフトを探す</a>
-                <a href="/articles/">記事一覧</a>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/"><img src="/assets/icon-256.png" alt="">おくるね<small>贈り物とお返しの総合サイト</small></a>
+            <button class="nav-toggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="site-nav">☰</button>
+            <nav class="site-nav" id="site-nav">
+                <a href="/#scenes">シーンから探す</a>
+                <a href="/gifts">ギフトを探す</a>
+                <a href="/articles/">マガジン</a>
+                <a href="/#manner">マナー早見表</a>
                 <a href="/app" class="cta">アプリ</a>
             </nav>
         </div>
@@ -187,8 +191,8 @@
                 <img class="app-icon" src="../assets/icon-256.png" alt="おくるね アプリアイコン">
                 <div><strong>おくるね — 贈り物とお返しの記録</strong></div>
                 <p>いただいた記録から、お返しの目安額と期限を自動計算。<br>出産祝いのお返し漏れを防げます。</p>
-                <a class="btn" href="https://apps.apple.com/jp/app/id6781582366" target="_blank" rel="noopener">App Store</a>
-                <a class="btn" href="https://play.google.com/store/apps/details?id=jp.okaeshinote.app" target="_blank" rel="noopener">Google Play</a>
+                <a class="btn" href="https://apps.apple.com/jp/app/id6781582366" target="_blank" rel="noopener">App Storeでダウンロード</a>
+                <a class="btn" href="https://play.google.com/store/apps/details?id=jp.okaeshinote.app" target="_blank" rel="noopener">Google Playでダウンロード</a>
             </div>
 
             <div class="related">
@@ -201,13 +205,23 @@
         </article>
     </div>
 
-    <footer class="mag-footer">
-        <a href="/">おくるね トップ</a>・
-        <a href="/gifts">ギフトを探す</a>・
-        <a href="/articles/">記事一覧</a>・
-        <a href="/app">アプリについて</a>・
-        <a href="/site-privacy">当サイトのプライバシーポリシー</a>
-        <br>© 2026 PIKTAF STUDIO
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><img src="/assets/icon-256.png" alt="">おくるね</div>
+            <ul class="footer-links">
+                <li><a href="/gifts">ギフトを探す</a></li>
+                <li><a href="/articles/">おくるねマガジン</a></li>
+                <li><a href="/app">おくるねアプリ</a></li>
+                <li><a href="/#contact">お問い合わせ</a></li>
+                <li><a href="/privacy">アプリのプライバシーポリシー</a></li>
+                <li><a href="/terms">利用規約</a></li>
+                <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
+                <li><a href="/site-privacy">当サイトのプライバシーポリシー</a></li>
+                <li><a href="https://piktaf-studio.com/" target="_blank" rel="noopener">PIKTAF STUDIO</a></li>
+            </ul>
+            <p class="footer-note">当サイトの商品紹介にはアフィリエイトプログラム（楽天アフィリエイト・Amazonアソシエイト）のリンクを含みます。商品の価格・在庫は各ストアの表示をご確認ください。</p>
+            <p class="footer-copy">&copy; 2026 PIKTAF STUDIO</p>
+        </div>
     </footer>
 </body>
 </html>

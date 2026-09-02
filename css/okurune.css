@@ -11,7 +11,7 @@
     --card2: #FFF0EB;
     /* 文字 */
     --ink: #3A2F2E;
-    --ink2: #8A7A78;
+    --ink2: #74625F;
     --ink3: #BCAEAB;
     /* 主アクセント（贈った） */
     --accent: #FF6B81;
@@ -27,9 +27,9 @@
     --gold-tint: #FDEACB;
     /* 罫線・影 */
     --line: rgba(60, 40, 40, 0.08);
-    --line-solid: #EFE4E0;
-    --shadow: 0 2px 10px rgba(214, 62, 90, 0.06);
-    --shadow-hover: 0 12px 28px rgba(214, 62, 90, 0.14);
+    --line-solid: #E8DCD7;
+    --shadow: none;
+    --shadow-hover: 0 10px 24px rgba(214, 62, 90, 0.12);
     /* ヒーロー・主要ボタンのグラデーション */
     --hero1: #FF8299;
     --hero2: #F0506A;
@@ -129,7 +129,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
 .nav-toggle {
     display: none;
     margin-left: auto;
-    width: 40px; height: 40px;
+    width: 44px; height: 44px;
     border: 1px solid var(--line-solid);
     border-radius: 12px;
     background: var(--card);
@@ -179,13 +179,14 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 12.5px;
+    font-size: 13.5px;
     font-weight: 700;
-    color: var(--ink2);
+    color: var(--ink);
     background: var(--card);
     border: 1px solid var(--line-solid);
     border-radius: 999px;
-    padding: 6px 14px;
+    padding: 8px 14px;
+    min-height: 40px;
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
@@ -196,7 +197,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
 .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .badge {
     display: inline-block;
-    font-size: 10.5px;
+    font-size: 11.5px;
     font-weight: 700;
     border-radius: 999px;
     padding: 2px 10px;
@@ -227,8 +228,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
     color: var(--accent-deep);
     margin-bottom: 4px;
 }
-.section-head h2 { font-size: 24px; font-weight: 900; }
-.section-head p { font-size: 13px; color: var(--ink2); margin-top: 4px; }
+.section-head h2 { font-size: 24px; font-weight: 900; text-wrap: balance; }
+.section-head p { font-size: 14px; color: var(--ink2); margin-top: 6px; max-width: 40em; }
 .section-head .more {
     flex-shrink: 0;
     font-size: 13px;
@@ -266,22 +267,27 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
     margin-bottom: 16px;
 }
 .hero-copy h1 {
-    font-size: 40px;
+    font-size: clamp(30px, 4.6vw, 44px);
     font-weight: 900;
-    line-height: 1.35;
+    line-height: 1.3;
     color: var(--ink);
+    text-wrap: balance;
+    max-width: 16em;
+    margin: 0 auto;
 }
 .hero-copy h1 em {
     font-style: normal;
     color: var(--accent-deep);
 }
 .hero-copy .lead {
-    margin-top: 14px;
-    font-size: 15px;
+    margin-top: 16px;
+    font-size: 15.5px;
     color: var(--ink2);
-    max-width: 30em;
+    max-width: 32em;
+    text-wrap: pretty;
 }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; margin-top: 24px; }
+.hero-actions .sub-link { font-size: 14px; font-weight: 700; color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
 .hero-scenes { margin-top: 22px; }
 .hero-scenes .label { font-size: 11.5px; font-weight: 700; color: var(--ink3); margin-bottom: 8px; letter-spacing: 0.05em; }
 
@@ -320,7 +326,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
 .tile.gold .ico { background: var(--gold-tint); }
 .tile > span:not(.ico) { display: flex; flex-direction: column; min-width: 0; }
 .tile .t { display: block; font-family: var(--font-head); font-weight: 800; font-size: 14.5px; line-height: 1.3; }
-.tile .s { display: block; font-size: 11.5px; color: var(--ink2); line-height: 1.5; margin-top: 2px; }
+.tile .s { display: block; font-size: 12.5px; color: var(--ink2); line-height: 1.5; margin-top: 2px; }
 .tile-grid.compact { grid-template-columns: repeat(6, 1fr); }
 .tile-grid.compact .tile { flex-direction: column; text-align: center; gap: 8px; padding: 16px 10px; }
 .tile-grid.compact .ico { width: 56px; height: 56px; font-size: 24px; }
@@ -369,30 +375,35 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
     overflow: hidden;
     border-bottom: 1px solid var(--line);
 }
-.gift-card .ph img { width: 100%; height: 100%; object-fit: contain; padding: 10px; transition: transform .3s ease; }
+.gift-card .ph img { width: 100%; height: 100%; object-fit: contain; padding: 12px; transition: transform .3s ease; }
+.gift-card .ph.noimg::before { content: ""; width: 48px; height: 48px; background: url(/assets/icons/ribbon.png) center/contain no-repeat; opacity: .8; }
 .gift-card:hover .ph img { transform: scale(1.04); }
 .gift-card .body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
-.gift-card .brand-name { font-size: 11px; font-weight: 700; color: var(--ink2); letter-spacing: 0.03em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gift-card .brand-name { font-size: 12px; font-weight: 700; color: var(--ink2); letter-spacing: 0.03em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .gift-card h3 { font-size: 14px; font-weight: 800; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.gift-card .desc { font-size: 12px; color: var(--ink2); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.gift-card .desc { font-size: 13px; color: var(--ink2); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .gift-card .meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 8px; margin-top: auto; padding-top: 6px; }
 .gift-card .price { font-family: var(--font-num); font-weight: 800; font-size: 16px; color: var(--accent-deep); }
 .gift-card .price small { font-size: 11px; font-weight: 700; margin-right: 1px; }
 .gift-card .tags { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
 .gift-card .shops { display: flex; gap: 6px; margin-top: 8px; }
-.gift-card .shops a, .gift-card .shops span {
+.gift-card .shop {
     flex: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 40px;
     text-align: center;
-    font-size: 11.5px;
+    font-size: 12.5px;
     font-weight: 700;
-    padding: 7px 8px;
+    padding: 8px 8px;
     border-radius: 999px;
+    border: 1.5px solid transparent;
     text-decoration: none;
+    white-space: nowrap;
 }
-.shop-rakuten { background: #BF0000; color: #fff; }
-.shop-rakuten:hover { background: #A00000; }
-.shop-amazon { background: #232F3E; color: #fff; }
-.shop-amazon:hover { background: #131A22; }
+.shop-rakuten { background: var(--accent-deep); color: #fff; border-color: var(--accent-deep); }
+.shop-rakuten:hover { background: #B8324C; text-decoration: none; color: #fff; }
+.shop-amazon { background: var(--card); color: var(--ink); border-color: var(--line-solid); }
+.shop-amazon:hover { border-color: var(--ink); text-decoration: none; }
 .pr-note {
     display: inline-flex;
     align-items: center;
@@ -464,8 +475,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
 .article-card .thumb .badge { position: absolute; left: 10px; bottom: 10px; background: rgba(255,255,255,.94); color: var(--accent-deep); }
 .article-card .body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
 .article-card h3 { font-size: 15px; font-weight: 800; line-height: 1.5; }
-.article-card p { font-size: 12.5px; color: var(--ink2); line-height: 1.7; }
-.article-card .more { margin-top: auto; font-size: 12px; font-weight: 700; color: var(--accent-deep); }
+.article-card p { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
+.article-card .more { margin-top: auto; font-size: 13px; font-weight: 700; color: var(--accent-deep); }
 
 /* ---------- マナー早見表 ---------- */
 .manner-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px; align-items: start; }
@@ -479,9 +490,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
 .table-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 10px; }
 .table-card table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .table-card th, .table-card td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--line-solid); }
-.table-card th { font-size: 11.5px; color: var(--ink2); font-weight: 700; }
+.table-card th { font-size: 12.5px; color: var(--ink2); font-weight: 700; }
 .table-card td .num { color: var(--accent-deep); }
-.table-card .foot { font-size: 11.5px; color: var(--ink3); margin-top: 10px; }
+.table-card .foot { font-size: 12.5px; color: var(--ink2); margin-top: 10px; }
 .tips { display: grid; gap: 12px; }
 .tip {
     display: flex;
@@ -496,7 +507,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
 .tip .ico img { width: 30px; height: 30px; }
 .tip > span:not(.ico) { display: flex; flex-direction: column; min-width: 0; }
 .tip .t { display: block; font-family: var(--font-head); font-weight: 800; font-size: 14px; }
-.tip .s { display: block; font-size: 12.5px; color: var(--ink2); line-height: 1.6; }
+.tip .s { display: block; font-size: 13.5px; color: var(--ink2); line-height: 1.6; }
 
 /* ---------- アプリ訴求 ---------- */
 .app-panel {
@@ -533,7 +544,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
     padding: 12px 14px;
 }
 .feature .t { font-family: var(--font-head); font-weight: 800; font-size: 13.5px; display: flex; align-items: center; gap: 8px; }
-.feature .s { font-size: 12px; opacity: .92; line-height: 1.55; margin-top: 2px; }
+.feature .s { font-size: 13px; opacity: .92; line-height: 1.55; margin-top: 2px; }
 
 /* ---------- アプリ紹介ページ ---------- */
 .page-hero { text-align: center; padding: 48px 20px 28px; }
@@ -640,11 +651,11 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
 .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
 .footer-brand { display: flex; align-items: center; gap: 8px; font-family: var(--font-head); font-weight: 900; font-size: 17px; color: var(--ink); }
 .footer-brand img { width: 26px; height: 26px; border-radius: 8px; }
-.footer-links { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; font-size: 12.5px; }
+.footer-links { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; font-size: 13px; }
 .footer-links a { color: var(--ink2); }
 .footer-links a:hover { color: var(--accent-deep); }
-.footer-copy { font-size: 11.5px; color: var(--ink3); }
-.footer-note { font-size: 11px; color: var(--ink3); max-width: 640px; line-height: 1.7; }
+.footer-copy { font-size: 12px; color: var(--ink3); }
+.footer-note { font-size: 12px; color: var(--ink3); max-width: 640px; line-height: 1.7; }
 
 /* ---------- Cookie 同意バナー（js/analytics.js が生成） ---------- */
 .consent-banner {
@@ -723,3 +734,124 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.4; letter-spacing
     .feature-list { grid-template-columns: 1fr; }
     .hero-copy h1 { font-size: 26px; }
 }
+
+/* ==========================================================================
+   v2 調整（2026-09-02 の3方向監査を反映）
+   ========================================================================== */
+/* 相手から探す: 大きなタイルではなくアイコン付きチップの列に */
+.who-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.who {
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 48px; padding: 6px 16px 6px 8px;
+    background: var(--card); border: 1px solid var(--line-solid); border-radius: 999px;
+    color: var(--ink); font-family: var(--font-head); font-weight: 800; font-size: 14px;
+    text-decoration: none; transition: border-color .15s ease, transform .15s ease;
+}
+.who:hover { border-color: var(--accent); color: var(--accent-deep); text-decoration: none; transform: translateY(-2px); }
+.who img { width: 32px; height: 32px; object-fit: contain; }
+
+/* 予算から探す: 1本の横長レンジ */
+.range {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: var(--card); border: 1px solid var(--line-solid); border-radius: var(--r-md); overflow: hidden;
+}
+.range a {
+    padding: 18px 14px; text-align: center; color: var(--ink); text-decoration: none;
+    border-right: 1px solid var(--line-solid); transition: background .15s ease;
+}
+.range a:last-child { border-right: 0; }
+.range a:hover { background: var(--accent-tint); text-decoration: none; }
+.range .num { display: block; font-size: 20px; color: var(--accent-deep); }
+.range .s { display: block; font-size: 13px; color: var(--ink2); margin-top: 4px; }
+
+/* 話題のギフト: スマホは横スクロール */
+.trend-note { font-size: 12.5px; color: var(--ink2); margin-top: 10px; }
+@media (max-width: 760px) {
+    .gift-grid.scroll-x {
+        display: flex; gap: 12px; overflow-x: auto; padding: 4px 20px 12px; margin: 0 -20px;
+        scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    }
+    .gift-grid.scroll-x .gift-card { flex: 0 0 min(76vw, 280px); scroll-snap-align: start; }
+    .gift-grid.scroll-x .gift-card .desc { display: -webkit-box; }
+}
+
+/* カタログ: スマホは1列。絞り込みは畳んでボタンで開く */
+.filter-toggle { display: none; }
+.toolbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+    margin: 18px 0 12px;
+}
+.toolbar .left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14px; color: var(--ink); }
+.toolbar select {
+    font-family: var(--font-body); font-size: 14px; min-height: 44px; padding: 8px 14px;
+    border-radius: 999px; border: 1px solid var(--line-solid); background: var(--card); color: var(--ink);
+}
+.active-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.active-filters .chip { min-height: 36px; padding: 4px 12px; font-size: 13px; }
+.filter-bar { margin-top: 8px; }
+.filter-group .k { width: 56px; font-size: 13px; padding-top: 9px; }
+.data-note { font-size: 12.5px; color: var(--ink2); margin-top: 20px; }
+@media (max-width: 560px) {
+    .gift-grid:not(.scroll-x) { grid-template-columns: 1fr; }
+    .gift-grid:not(.scroll-x) .gift-card { flex-direction: row; }
+    .gift-grid:not(.scroll-x) .gift-card .ph { flex: 0 0 128px; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line); }
+    .gift-grid:not(.scroll-x) .gift-card .desc { display: -webkit-box; }
+    .filter-toggle { display: inline-flex; }
+    .filter-bar { display: none; }
+    .filter-bar.open { display: grid; }
+    .filter-group .k { width: auto; padding-top: 0; }
+}
+
+/* マナー早見表: スマホは行をカードにする */
+@media (max-width: 560px) {
+    .table-card table, .table-card thead, .table-card tbody, .table-card tr, .table-card td { display: block; }
+    .table-card thead { display: none; }
+    .table-card tr { padding: 10px 0; border-bottom: 1px solid var(--line-solid); }
+    .table-card tr:last-child { border-bottom: 0; }
+    .table-card td { border: 0; padding: 2px 0; display: flex; gap: 10px; }
+    .table-card td::before { content: attr(data-label); flex: 0 0 5.5em; font-size: 12.5px; color: var(--ink2); font-weight: 700; }
+    .table-card td:first-child { font-family: var(--font-head); font-weight: 800; font-size: 15px; }
+    .table-card td:first-child::before { display: none; }
+}
+
+/* 記事カード: スマホでも説明を2行残す */
+@media (max-width: 760px) {
+    .article-card p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 13px; }
+    .article-grid > .article-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* アプリ紹介: 主要4機能は大きく、残りは詰めたリスト */
+.feature-main { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.feature-main .feature-card { display: flex; gap: 16px; align-items: flex-start; padding: 22px; }
+.feature-main .feature-card .ico { flex: 0 0 56px; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 16px; background: var(--accent-tint); }
+.feature-main .feature-card .ico img { width: 40px; height: 40px; object-fit: contain; }
+.feature-main h3 { font-size: 17px; }
+.feature-more { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 24px; margin-top: 18px; }
+.feature-more li { list-style: none; display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid var(--line-solid); }
+.feature-more li b { font-family: var(--font-head); font-weight: 800; color: var(--ink); display: block; }
+.feature-more li span { color: var(--ink2); font-size: 13.5px; }
+.feature-more li::before { content: ""; flex: 0 0 8px; width: 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: var(--accent); }
+.app-lead { font-size: 16px; line-height: 1.85; max-width: 640px; margin: 0 auto; color: var(--ink); text-wrap: pretty; }
+.page-hero h1 { text-wrap: balance; }
+.page-hero .sub { font-size: 16px; }
+.trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 860px; margin: 0 auto; }
+.trust { background: var(--card); border: 1px solid var(--line-solid); border-radius: var(--r-md); padding: 16px 18px; }
+.trust b { display: block; font-family: var(--font-head); font-size: 15px; margin-bottom: 4px; }
+.trust span { font-size: 13.5px; color: var(--ink2); line-height: 1.65; }
+.store-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+@media (max-width: 760px) {
+    .feature-main { grid-template-columns: 1fr; }
+    .feature-more { grid-template-columns: 1fr; }
+    .trust-row { grid-template-columns: 1fr; }
+    .range { grid-template-columns: repeat(2, 1fr); }
+    .range a:nth-child(2) { border-right: 0; }
+    .range a:nth-child(-n+2) { border-bottom: 1px solid var(--line-solid); }
+}
+
+/* マガジン側で共通ヘッダー/フッターを使うときの補正 */
+.mag-title { text-align: center; padding: 40px 20px 8px; }
+.mag-title h1 { font-size: clamp(26px, 4vw, 34px); font-weight: 900; text-wrap: balance; }
+.mag-title p { font-size: 14.5px; color: var(--ink2); margin-top: 8px; }
+.mag-cats { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 12px 20px 8px; }
+/* 日本語見出しの改行位置を語の切れ目に固定する */
+.nw { display: inline-block; }

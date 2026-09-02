@@ -18,6 +18,7 @@
     <meta name="twitter:image" content="https://okurune.com/articles/img/birthday-women.jpg">
     <link rel="icon" href="../assets/icon-256.png" type="image/png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="/css/okurune.css">
     <link rel="stylesheet" href="media.css">
     <script src="/js/analytics.js"></script>
     <script type="application/ld+json">
@@ -51,34 +52,36 @@
     </script>
 </head>
 <body>
-    <header class="mag-header">
-        <div class="mag-header-inner">
-            <a class="mag-logo" href="/articles/"><img src="../assets/icon-256.png" alt="おくるね">おくるね<span>マガジン</span></a>
-            <nav class="mag-nav">
-                <a href="/" class="hide-sp">トップ</a>
-                <a href="/gifts" class="hide-sp">ギフトを探す</a>
-                <a href="/articles/">記事一覧</a>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="/"><img src="/assets/icon-256.png" alt="">おくるね<small>贈り物とお返しの総合サイト</small></a>
+            <button class="nav-toggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="site-nav">☰</button>
+            <nav class="site-nav" id="site-nav">
+                <a href="/#scenes">シーンから探す</a>
+                <a href="/gifts">ギフトを探す</a>
+                <a href="/articles/">マガジン</a>
+                <a href="/#manner">マナー早見表</a>
                 <a href="/app" class="cta">アプリ</a>
             </nav>
         </div>
     </header>
 
-    <div class="mag-hero">
-        <h1>贈り物の「どうしよう」に<br>ぜんぶ答えるメディア</h1>
-        <p>お返しのマナーから、プレゼントの選び方まで。贈り物アプリ「おくるね」編集部がお届けします</p>
+    <div class="mag-title">
+        <h1>おくるねマガジン</h1>
+        <p>お返しのマナーからプレゼントの選び方まで。贈り物アプリ「おくるね」の編集部がお届けします</p>
     </div>
 
     <div class="wrap">
-        <ul class="chip-row">
-            <li><a href="#okaeshi">🎀 お返し・内祝い</a></li>
-            <li><a href="#birthday">🎂 誕生日プレゼント</a></li>
-            <li><a href="#season">🍁 季節の贈り物</a></li>
-            <li><a href="#guide">📖 選び方ガイド</a></li>
-        </ul>
+        <div class="mag-cats">
+            <a class="chip" href="#okaeshi">お返し・内祝い</a>
+            <a class="chip" href="#birthday">誕生日プレゼント</a>
+            <a class="chip" href="#season">季節の贈り物</a>
+            <a class="chip" href="#guide">選び方ガイド</a>
+        </div>
 
         <section id="okaeshi">
             <div class="mag-section">
-                <h2><span class="en">OKAESHI</span>お返し・内祝い</h2>
+                <h2>お返し・内祝い</h2>
                 <p>いただいたら、いくら・いつまでに・何を返す？　迷いやすいマナーを早見表で。</p>
             </div>
             <div class="card-grid">
@@ -87,7 +90,7 @@
                     <div class="body">
                         <h3>内祝いの「半返し」いくらが正解？金額とマナーの早見表</h3>
                         <p>結婚・出産・香典。シーン別の目安額と時期を1枚の表にまとめました。</p>
-                        <span class="more">読む →</span>
+                        <span class="more">記事を読む →</span>
                     </div>
                 </a>
                 <a class="article-card" href="shussan-uchiwai">
@@ -95,7 +98,7 @@
                     <div class="body">
                         <h3>出産内祝いの選び方。相場・時期と、外さない定番ギフト8選</h3>
                         <p>お宮参りまでに贈るのが目安。名入れの注意点と、喜ばれる定番を紹介。</p>
-                        <span class="more">読む →</span>
+                        <span class="more">記事を読む →</span>
                     </div>
                 </a>
                 <a class="article-card" href="koden-gaeshi">
@@ -103,7 +106,7 @@
                     <div class="body">
                         <h3>香典返しのマナー。「消えもの」を選ぶ理由と定番の品</h3>
                         <p>忌明けの時期・のしの書き方・避けたい品まで、静かに整理します。</p>
-                        <span class="more">読む →</span>
+                        <span class="more">記事を読む →</span>
                     </div>
                 </a>
             </div>
@@ -111,7 +114,7 @@
 
         <section id="birthday">
             <div class="mag-section">
-                <h2><span class="en">BIRTHDAY</span>誕生日プレゼント</h2>
+                <h2>誕生日プレゼント</h2>
                 <p>相手の年代・好みに合わせて。予算別の選び方と定番アイデア。</p>
             </div>
             <div class="card-grid">
@@ -120,7 +123,7 @@
                     <div class="body">
                         <h3>女性がもらって嬉しい誕生日プレゼント。年代別・予算別の選び方</h3>
                         <p>20代〜60代まで、年代で変わる「ちょうどいい」の見つけ方。</p>
-                        <span class="more">読む →</span>
+                        <span class="more">記事を読む →</span>
                     </div>
                 </a>
                 <a class="article-card" href="birthday-men">
@@ -128,7 +131,7 @@
                     <div class="body">
                         <h3>男性への誕生日プレゼント。「自分では買わないもの」で選ぶ</h3>
                         <p>夫・彼氏・父・上司。関係性別の予算相場と外さないジャンル。</p>
-                        <span class="more">読む →</span>
+                        <span class="more">記事を読む →</span>
                     </div>
                 </a>
             </div>
@@ -136,7 +139,7 @@
 
         <section id="season">
             <div class="mag-section">
-                <h2><span class="en">SEASON</span>季節の贈り物</h2>
+                <h2>季節の贈り物</h2>
                 <p>その時季にだけ読みたい、行事の贈り物ガイド。</p>
             </div>
             <div class="card-grid">
@@ -145,7 +148,7 @@
                     <div class="body">
                         <h3>敬老の日ギフト2026。祖父母が本当に喜ぶものと避けたいもの</h3>
                         <p>「モノより気持ち」を形にするコツと、予算3,000円からの定番。</p>
-                        <span class="more">読む →</span>
+                        <span class="more">記事を読む →</span>
                     </div>
                 </a>
             </div>
@@ -153,7 +156,7 @@
 
         <section id="guide">
             <div class="mag-section">
-                <h2><span class="en">GUIDE</span>選び方ガイド</h2>
+                <h2>選び方ガイド</h2>
                 <p>ジャンルで迷ったときの、贈り物の教科書。</p>
             </div>
             <div class="card-grid">
@@ -162,7 +165,7 @@
                     <div class="body">
                         <h3>カタログギフトの選び方。価格帯の仕組みと失礼にならない使い方</h3>
                         <p>「システム料」って何？　内祝い・香典返しでの使い分けも解説。</p>
-                        <span class="more">読む →</span>
+                        <span class="more">記事を読む →</span>
                     </div>
                 </a>
             </div>
@@ -172,19 +175,29 @@
             <img class="app-icon" src="../assets/icon-256.png" alt="おくるね アプリアイコン">
             <div><strong>おくるね — 贈り物とお返しの記録アプリ</strong></div>
             <p>誕生日・記念日のリマインドと、お返しの金額・期限の自動計算。<br>記録はあなたの端末の中だけに。無料で使えます。</p>
-            <a class="btn" href="https://apps.apple.com/jp/app/id6781582366" target="_blank" rel="noopener">App Store</a>
-            <a class="btn" href="https://play.google.com/store/apps/details?id=jp.okaeshinote.app" target="_blank" rel="noopener">Google Play</a>
-            <a class="btn ghost" href="/app">アプリについて</a>
+            <a class="btn" href="https://apps.apple.com/jp/app/id6781582366" target="_blank" rel="noopener">App Storeでダウンロード</a>
+            <a class="btn" href="https://play.google.com/store/apps/details?id=jp.okaeshinote.app" target="_blank" rel="noopener">Google Playでダウンロード</a>
+            <a class="btn ghost" href="/app">おくるねアプリを見る</a>
         </div>
     </div>
 
-    <footer class="mag-footer">
-        <a href="/">おくるね トップ</a>・
-        <a href="/gifts">ギフトを探す</a>・
-        <a href="/articles/">記事一覧</a>・
-        <a href="/app">アプリについて</a>・
-        <a href="/site-privacy">当サイトのプライバシーポリシー</a>
-        <br>© 2026 PIKTAF STUDIO
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><img src="/assets/icon-256.png" alt="">おくるね</div>
+            <ul class="footer-links">
+                <li><a href="/gifts">ギフトを探す</a></li>
+                <li><a href="/articles/">おくるねマガジン</a></li>
+                <li><a href="/app">おくるねアプリ</a></li>
+                <li><a href="/#contact">お問い合わせ</a></li>
+                <li><a href="/privacy">アプリのプライバシーポリシー</a></li>
+                <li><a href="/terms">利用規約</a></li>
+                <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
+                <li><a href="/site-privacy">当サイトのプライバシーポリシー</a></li>
+                <li><a href="https://piktaf-studio.com/" target="_blank" rel="noopener">PIKTAF STUDIO</a></li>
+            </ul>
+            <p class="footer-note">当サイトの商品紹介にはアフィリエイトプログラム（楽天アフィリエイト・Amazonアソシエイト）のリンクを含みます。商品の価格・在庫は各ストアの表示をご確認ください。</p>
+            <p class="footer-copy">&copy; 2026 PIKTAF STUDIO</p>
+        </div>
     </footer>
 </body>
 </html>
