@@ -404,3 +404,14 @@ article th { background: #FFF0EB; font-weight: 700; white-space: nowrap; }
     article h1 { font-size: 22px; }
     .mag-nav .hide-sp { display: none; }
 }
+
+/* Shared magazine reading hierarchy: lead points, checks and internal search. */
+.wrap-narrow article p { font-size: 1rem; line-height: 1.9; color: var(--ink); }
+.wrap-narrow article h2 { border-left: 5px solid var(--accent); padding-left: 14px; margin-top: 2.5rem; }
+.wrap-narrow article mark, .wrap-narrow article p strong { background: var(--accent-tint); color: var(--ink); font-weight: 700; padding: .08em .12em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.wrap-narrow article .article-points { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px 16px 40px; margin: 8px 0 24px; }
+.wrap-narrow article .article-points li { font-size: .9375rem; line-height: 1.8; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent-soft); text-underline-offset: .25em; margin: 6px 0; }
+.article-search-button { display: flex; align-items: center; justify-content: center; gap: 18px; min-height: 52px; background: var(--accent); color: white; border-radius: 14px; padding: 14px 20px; font-size: 1rem; font-weight: 700; text-decoration: none; margin: 24px 0; }
+.article-search-button:hover { filter: brightness(.92); }
+.article-search-button:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+.synced-article { overflow-wrap: anywhere; }
