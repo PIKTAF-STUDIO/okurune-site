@@ -3,6 +3,7 @@ name: Sync gift catalog
 on:
   workflow_dispatch:
   schedule:
+    # JST 03:17 every day; runs after the source catalog build on most days.
     - cron: '17 18 * * *'
   push:
     branches: [main]
@@ -19,23 +20,43 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    env:
+      SOURCE_TOKEN: ${{ secrets.OKURUNE_SOURCE_TOKEN }}
     steps:
       - name: Checkout site
         uses: actions/checkout@v4
 
+      - name: Check source credential
+        id: credential
+        shell: bash
+        run: |
+          if [ -z "$SOURCE_TOKEN" ]; then
+            echo 'configured=false' >> "$GITHUB_OUTPUT"
+            echo 'OKURUNE_SOURCE_TOKEN is not configured; leaving the published catalog unchanged.'
+          else
+            echo 'configured=true' >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Fetch canonical catalog outputs
+        if: steps.credential.outputs.configured == 'true'
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p data
-          curl --fail --location --retry 3 --retry-delay 2 \
-            'https://raw.githubusercontent.com/PIKTAF-STUDIO/okaeshi-note/main/catalog/generated/data/gifts.json' \
+          headers=(
+            -H "Authorization: Bearer $SOURCE_TOKEN"
+            -H 'Accept: application/vnd.github.raw+json'
+            -H 'X-GitHub-Api-Version: 2022-11-28'
+          )
+          curl --fail --location --retry 3 --retry-delay 2 "${headers[@]}" \
+            'https://api.github.com/repos/PIKTAF-STUDIO/okaeshi-note/contents/catalog/generated/data/gifts.json?ref=main' \
             -o data/gifts.json
-          curl --fail --location --retry 3 --retry-delay 2 \
-            'https://raw.githubusercontent.com/PIKTAF-STUDIO/okaeshi-note/main/catalog/generated/data/gift-catalog.json' \
+          curl --fail --location --retry 3 --retry-delay 2 "${headers[@]}" \
+            'https://api.github.com/repos/PIKTAF-STUDIO/okaeshi-note/contents/catalog/generated/data/gift-catalog.json?ref=main' \
             -o data/gift-catalog.json
 
       - name: Validate catalog payloads
+        if: steps.credential.outputs.configured == 'true'
         shell: bash
         run: |
           python - <<'PY'
@@ -46,8 +67,8 @@ jobs:
           app = json.loads(Path('data/gift-catalog.json').read_text(encoding='utf-8'))
           g_items = gifts.get('items') or []
           a_items = app.get('items') or []
-          if not g_items or not a_items:
-              raise SystemExit('catalog is empty')
+          if len(g_items) < 3609 or len(a_items) < 3609:
+              raise SystemExit(f'catalog unexpectedly small: site={len(g_items)} app={len(a_items)}')
           if len(g_items) != len(a_items):
               raise SystemExit(f'count mismatch: site={len(g_items)} app={len(a_items)}')
           if app.get('schemaVersion') != 2:
@@ -56,9 +77,11 @@ jobs:
           PY
 
       - name: Re-render static gift pages
+        if: steps.credential.outputs.configured == 'true'
         run: python tools/render_static.py
 
       - name: Commit synchronized catalog
+        if: steps.credential.outputs.configured == 'true'
         shell: bash
         run: |
           set -euo pipefail
