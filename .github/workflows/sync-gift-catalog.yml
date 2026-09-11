@@ -3,8 +3,8 @@ name: Sync gift catalog
 on:
   workflow_dispatch:
   schedule:
-    # JST 03:17 every day; runs after the source catalog build on most days.
-    - cron: '17 18 * * *'
+    # JST 04:17 every day; source AI maintenance is scheduled for 03:37.
+    - cron: '17 19 * * *'
   push:
     branches: [main]
     paths:
