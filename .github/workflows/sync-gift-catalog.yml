@@ -1,0 +1,73 @@
+name: Sync gift catalog
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 18 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-gift-catalog.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-gift-catalog
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+
+      - name: Fetch canonical catalog outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://raw.githubusercontent.com/PIKTAF-STUDIO/okaeshi-note/main/catalog/generated/data/gifts.json' \
+            -o data/gifts.json
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://raw.githubusercontent.com/PIKTAF-STUDIO/okaeshi-note/main/catalog/generated/data/gift-catalog.json' \
+            -o data/gift-catalog.json
+
+      - name: Validate catalog payloads
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          gifts = json.loads(Path('data/gifts.json').read_text(encoding='utf-8'))
+          app = json.loads(Path('data/gift-catalog.json').read_text(encoding='utf-8'))
+          g_items = gifts.get('items') or []
+          a_items = app.get('items') or []
+          if not g_items or not a_items:
+              raise SystemExit('catalog is empty')
+          if len(g_items) != len(a_items):
+              raise SystemExit(f'count mismatch: site={len(g_items)} app={len(a_items)}')
+          if app.get('schemaVersion') != 2:
+              raise SystemExit(f"unexpected app schema: {app.get('schemaVersion')}")
+          print(f'validated {len(g_items)} products; updated={gifts.get("updated")}')
+          PY
+
+      - name: Re-render static gift pages
+        run: python tools/render_static.py
+
+      - name: Commit synchronized catalog
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- data gifts.html; then
+            echo 'Catalog already up to date.'
+            exit 0
+          fi
+          git config user.name 'okurune-catalog-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/gifts.json data/gift-catalog.json gifts.html
+          git commit -m 'Sync current gift catalog [skip ci]'
+          git push
